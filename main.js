@@ -7,15 +7,26 @@ const path = require('path');
 
 async function run() {
   try {
-    await exec.exec("ls", ["-al"])
-    await exec.exec("cat", ["swagger.json"])
-
+    console.log("Here 1");
+    console.log(core.getInput('readme-api-key'));
     const readmeKey = core.getInput('readme-api-key', { required: true });
+
+    console.log("here 2")
+    console.log(core.getInput('api-file-path'));
     const apiFilePath = core.getInput('api-file-path', { required: true });
+
+    console.log("here3")
+    console.log(core.getInput('readme-api-id'));
     const apiSettingId = core.getInput('readme-api-id', { required: true });
+
+    console.log("here 4")
+    console.log(core.getInput('readme-api-id'));
     const apiVersion = core.getInput('readme-api-version', { required: true });
+
+    console.log("here 5")
+    console.log(core.getInput('repo-token'));
     const token = core.getInput('repo-token', { required: true });
-    console.log(apiFilePath);
+    console.log("Here 6")
 
     const client = new github.GitHub(token);
 
