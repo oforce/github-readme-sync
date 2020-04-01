@@ -7,7 +7,7 @@ const path = require('path');
 
 async function run() {
   try {
-    await exec.exec("ls", [""])
+    await exec.exec("ls", ["-al"])
     await exec.exec("cat", ["swagger.json"])
 
     const readmeKey = core.getInput('readme-api-key', { required: true });
