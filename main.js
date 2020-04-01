@@ -10,7 +10,6 @@ async function run() {
     const apiFilePath = core.getInput('api-file-path', { required: true });
     const apiSettingId = core.getInput('readme-api-id', { required: true });
     const apiVersion = core.getInput('readme-api-version', { required: true });
-    const token = core.getInput('repo-token', { required: true });
 
     const options = {
       formData: {
