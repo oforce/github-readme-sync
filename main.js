@@ -17,7 +17,10 @@ async function run() {
     const client = new github.GitHub(token);
     console.log(`Client: ${client}`);
     console.log(`Repo Repository: ${JSON.stringify(github.context.repository)}`);
-    console.log(`Repo Repo: ${JSON.stringify(github.context.repo)}`);
+    console.log("Repo Repo:" + JSON.stringify(github.context.repo));
+
+    console.log("Ref: " + JSON.stringify(github.context.ref))
+    console.log("PAth: " + apiFilePath)
 
     const apiFile = await client.repos.getContents({
       owner: github.context.repo.owner,
