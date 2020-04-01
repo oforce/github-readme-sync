@@ -1,11 +1,14 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const exec = require('@actions/exec');
 const request = require('request-promise-native');
 const fs = require('fs');
 const path = require('path');
 
 async function run() {
   try {
+    await exec("ls", ["swagger/"])
+
     const readmeKey = core.getInput('readme-api-key', { required: true });
     const apiFilePath = core.getInput('api-file-path', { required: true });
     const apiSettingId = core.getInput('readme-api-id', { required: true });
