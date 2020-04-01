@@ -4,11 +4,11 @@
   "description": "",
   "main": "main.js",
   "dependencies": {
-    "@actions/core": "^1.2.0",
+    "@actions/core": "^1.2.3",
     "@actions/exec": "^1.0.3",
     "@actions/github": "^1.1.0",
-    "request": "^2.88.0",
-    "request-promise-native": "^1.0.7"
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.8"
   },
   "devDependencies": {},
   "scripts": {
