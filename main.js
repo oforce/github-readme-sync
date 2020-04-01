@@ -13,14 +13,14 @@ async function run() {
     const apiVersion = core.getInput('readme-api-version', { required: true });
 
     const token = core.getInput('repo-token', { required: true });
-
+    console.log(`Token: ${token}`);
     const client = new github.GitHub(token);
     console.log(`Repo Repository: ${JSON.stringify(github.context.repository)}`);
     console.log("Repo Repo:" + JSON.stringify(github.context.repo));
 
     console.log("Ref: " + JSON.stringify(github.context.ref))
-    console.log("PAth: " + apiFilePath)
-    console.log(`Client: ` + JSON.stringify(client.repos));
+    console.log("PAth: " + apiFilePath);
+    console.log(`Client: ` + JSON.stringify(client));
 
     const apiFile = await client.repos.getContents({
       owner: github.context.repo.owner,
