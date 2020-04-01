@@ -33,8 +33,8 @@ async function run() {
     console.log(github.context);
 
     const apiFile = await client.repos.getContents({
-      owner: github.context.repo.owner,
-      repo: github.context.repo.repo,
+      owner: github.context.repository.owner,
+      repo: github.context.repository.repo,
       path: apiFilePath,
       ref: github.context.ref,
     });
