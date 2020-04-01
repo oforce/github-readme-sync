@@ -15,6 +15,7 @@ async function run() {
     const apiSettingId = core.getInput('readme-api-id', { required: true });
     const apiVersion = core.getInput('readme-api-version', { required: true });
     const token = core.getInput('repo-token', { required: true });
+    console.log(apiFilePath);
 
     const client = new github.GitHub(token);
 
@@ -24,6 +25,12 @@ async function run() {
       path: apiFilePath,
       ref: github.context.ref,
     });
+
+    console.log(`apiFilePath: ${apiFilePath}`);
+    console.log(`apiFile: ${apiFile}`);
+    console.log(`apiSettingId: ${apiSettingId}`);
+    console.log(`apiVersion: ${apiVersion}`);
+    console.log(`readmeKey: ${readmeKey}`)
 
     fs.writeFileSync('file.json', Buffer.from(apiFile.data.content, 'base64').toString('utf8'));
 
@@ -45,11 +52,15 @@ async function run() {
       if (err.statusCode === 503) {
         core.setFailed('Uh oh! There was an unexpected error uploading your file. Contact support@readme.io with a copy of your file for help!')
       } else {
+        console.log(err)
+        console.log(`ERROR Status Code IN REQUEST: ${err.statusCode}`)
+        console.log(`ERROR Status MESSAGE IN REQUEST: ${err.message}`)
         core.setFailed(err.message);
       }
     });
 
   } catch (error) {
+    console.log(`Error outside of request ${error}`)
     core.setFailed(error.message);
   }
 }
