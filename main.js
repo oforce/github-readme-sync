@@ -17,8 +17,7 @@ async function run() {
       },
       headers: {
         'x-readme-version': apiVersion,
-        'x-readme-source': 'github',
-        'x-samples-languages': ['curl', 'node', 'ruby', 'javascript', 'python', 'csharp']
+        'x-readme-source': 'github'
       },
       auth: { user: readmeKey },
       resolveWithFullResponse: true,
